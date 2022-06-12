@@ -1,0 +1,2 @@
+class RamenFavorite < ApplicationRecord
+end

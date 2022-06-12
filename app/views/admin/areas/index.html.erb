@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row mt-3">
+    <div class="col-4">
+        <h3 class="bg-light">
+          <strong>
+            エリア一覧・追加
+          </strong>
+        </h3>
+    </div>
+  </div>
+
+  <div class="row mt-5 ml-4">
+      <tr>
+        <%= form_with model: @area, url: admin_areas_path do |f| %>
+          <td>
+            <strong>都道府県名</strong>
+          </td>
+          <td><%= f.text_field :area, class: "ml-5" %></td>
+          <td><%= f.submit '新規投録', class: "btn btn-sm btn-success ml-5" %></td>
+        <% end %>
+      </tr>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-4">
+      <table  class = "table">
+
+          <tr class= "bg-light">
+            <td>
+              <strong>エリア</strong>
+            </td>
+            <td></td>
+          </tr>
+
+        <tbody>
+          <% @areas.each do |area| %>
+          <tr>
+          <td><%= area.area %></td>
+          <td class="text-right"><%= link_to '編集する', edit_admin_area_path(area.id), class: "btn btn-sm btn-success" %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

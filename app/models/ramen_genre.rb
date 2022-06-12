@@ -1,0 +1,2 @@
+class RamenGenre < ApplicationRecord
+end
