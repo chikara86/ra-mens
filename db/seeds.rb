@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 #管理者ログイン用メールアドレス　パスワード
-Admin.create!(email: 'ra_mens@gmail.com', password: 'rmn864')
+#Admin.create!(email: 'ra_mens@gmail.com', password: 'rmn864')
 
 genres = [
   '醤油', '塩', '味噌', '豚骨',
@@ -15,7 +15,7 @@ genres = [
   '二郎系'
   ]
 genres.each do |genre|
-  Genre.find_or_create_by(name: genre)
+ # Genre.find_or_create_by(name: genre)
 end
 
 areas = [

@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     when Admin
       admin_genres_path
     when User
-      root_path
+      user_path(current_user.id)
     end
   end
 

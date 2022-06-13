@@ -1,0 +1,138 @@
+ <div class="container">
+    <div class="row mt-5">
+      <div class="col-2 text-right">
+        <h3 class="bg-light">
+          <strong>
+            ラーメン情報
+          </strong>
+        </h3>
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <div class="col-4">
+        <%= image_tag @ramen.get_image, size: "350x250" %>
+      </div>
+
+        <div class="col-8">
+          <table>
+            <tbody>
+
+              <tr>
+                <th>
+                  <p>エリア</p>
+                </th>
+
+                <td>
+                  <p><%= @ramen.area.area %></p>
+                </td>
+              </tr>
+
+              <tr>
+                <th>
+                  <p>店名</p>
+                </th>
+
+                <td>
+                  <p><%= @ramen.shop_name %></p>
+                </td>
+              </tr>
+
+              <tr>
+                <th>
+                  <p>商品名</p>
+                </th>
+
+                <td>
+                  <p><%= @ramen.name %></p>
+                </td>
+              </tr>
+
+              <tr>
+                <th>
+                  <P>感想</P>
+                </th>
+
+                <td>
+                  <p><%= @ramen.introduction %></P>
+                </td>
+              </tr>
+
+              <tr>
+                <th>
+                  <p>ジャンル</P>
+                </th>
+
+                  <td>
+                    <p><%= @ramen.genre.name %></P>
+                  </td>
+              </tr>
+
+              <tr>
+                <th>
+                  <p>値段</p>
+                </th>
+
+                  <td>
+                    <p>
+                      <%= @ramen.price %>
+                    </p>
+                  </td>
+              </tr>
+
+              <tr>
+                <th>
+                  <p>所在地</p>
+                </th>
+
+                  <td>
+                    <p>
+                      <%= @ramen.location %>
+                    </p>
+                  </td>
+              </tr>
+
+              <tr>
+                <th>
+                  <p>開店時間</p>
+                </th>
+
+                  <td>
+                    <p>
+                      <%= @ramen.open_time %>
+                    </p>
+                  </td>
+              </tr>
+
+              <tr>
+                <th>
+                  <p>閉店時間</p>
+                </th>
+
+                  <td>
+                    <p>
+                      <%= @ramen.close_time %>
+                    </p>
+                  </td>
+              </tr>
+
+              <tr>
+                <th>
+                  <p>定休日</p>
+                </th>
+
+                  <td>
+                    <p>
+                      <%= @ramen.regular_holiday %>
+                    </p>
+                  </td>
+              </tr>
+
+              <tr>
+                  <td><%= link_to '編集する', edit_ramen_path(@ramen.id), class: "btn btn-lg btn-success mt-5" %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </div>
+  </div>

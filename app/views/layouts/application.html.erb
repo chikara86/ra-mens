@@ -11,8 +11,8 @@
   </head>
 
   <body>
-    
-    <p><%= link_to "sign_out", destroy_user_session_path, method: :delete, class:'btn' %></p>
+
+    <p><%= link_to "sign_out", destroy_user_session_path, method: :delete %></p>
     <%= yield %>
   </body>
 </html>
