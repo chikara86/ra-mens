@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_13_120149) do
+ActiveRecord::Schema.define(version: 2022_06_14_063832) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -73,11 +73,10 @@ ActiveRecord::Schema.define(version: 2022_06_13_120149) do
     t.float "latitube"
     t.float "longitube"
     t.string "location"
-    t.time "open_time"
-    t.time "close_time"
     t.string "regular_holiday"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "business_hours"
     t.index ["area_id"], name: "index_ramen_on_area_id"
     t.index ["genre_id"], name: "index_ramen_on_genre_id"
     t.index ["user_id"], name: "index_ramen_on_user_id"

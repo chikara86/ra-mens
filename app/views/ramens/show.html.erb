@@ -1,20 +1,23 @@
  <div class="container">
+
     <div class="row mt-5">
       <div class="col-2 text-right">
         <h3 class="bg-light">
           <strong>
-            ラーメン情報
+            詳細
           </strong>
         </h3>
       </div>
     </div>
 
     <div class="row mt-5">
+
       <div class="col-4">
         <%= image_tag @ramen.get_image, size: "350x250" %>
       </div>
 
         <div class="col-8">
+
           <table>
             <tbody>
 
@@ -94,24 +97,12 @@
 
               <tr>
                 <th>
-                  <p>開店時間</p>
+                  <p>営業時間</p>
                 </th>
 
                   <td>
                     <p>
-                      <%= @ramen.open_time %>
-                    </p>
-                  </td>
-              </tr>
-
-              <tr>
-                <th>
-                  <p>閉店時間</p>
-                </th>
-
-                  <td>
-                    <p>
-                      <%= @ramen.close_time %>
+                      <%= @ramen.business_hours %>
                     </p>
                   </td>
               </tr>
@@ -128,9 +119,14 @@
                   </td>
               </tr>
 
+
+              <% if @ramen.user == current_user %>
               <tr>
                   <td><%= link_to '編集する', edit_ramen_path(@ramen.id), class: "btn btn-lg btn-success mt-5" %></td>
+                  <td><%= link_to "削除", ramen_path(@ramen.id), method: :delete,"data-confirm" => "本当に削除しますか？", class: "btn btn-lg btn-success mt-5" %></td>
               </tr>
+              <% end %>
+
             </tbody>
           </table>
         </div>

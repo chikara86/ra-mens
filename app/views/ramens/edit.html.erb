@@ -1,2 +1,69 @@
-<h1>Ramens#edit</h1>
-<p>Find me in app/views/ramens/edit.html.erb</p>
+<div class="container">
+    <div class="row mt-5">
+      <div class="col-4">
+        <h3 class="bg-light">
+          <strong>
+            ラーメン編集
+          </strong>
+        </h3>
+      </div>
+    </div>
+  <%= form_with model: @ramen, url: ramen_path(@ramen.id) do |f| %>
+
+    <div class="col-6">
+          <div class="form-group row">
+            <%= f.label :ラーメン画像 , class: "col-4"%>
+            <%= f.file_field :image , class: "col-8"%>
+          </div>
+
+          <div class="form-group row">
+            <%= f.label :エリア , class: "col-4"%>
+            <%= f.select :area_id, options_from_collection_for_select(Area.all, :id, :area, @ramen.area_id), { include_blank: '--選択してください--'} %>
+          </div>
+
+          <div class="form-group row">
+            <%= f.label :店名 , class: "col-4"%>
+            <%= f.text_field :shop_name , class: "col-8"%>
+          </div>
+
+          <div class="form-group row">
+            <%= f.label :商品名 , class: "col-4"%>
+            <%= f.text_field :name , class: "col-8"%>
+          </div>
+
+          <div class="form-group row">
+            <%= f.label :感想, class: "col-4" %>
+            <%= f.text_area :introduction, class: "form-control col-8" %>
+          </div>
+
+          <div class="form-group row">
+            <%= f.label :ジャンル , class: "col-4"%>
+            <%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name, @ramen.genre_id), { include_blank: '--選択してください--'} %>
+          </div>
+
+          <div class="form-group row">
+            <%= f.label :値段 , class: "col-4"%>
+            <%= f.text_field :price, class: "col-8" %>
+          </div>
+
+          <div class="form-group row">
+            <%= f.label :所在地 , class: "col-4"%>
+            <%= f.text_field :location, class: "col-8" %>
+          </div>
+
+          <div class="form-group row">
+          <%= f.label :営業時間 , class: "col-4" %>
+          <%= f.text_field :business_hours, class: "col-8" %>
+          </div>
+
+          <div class="form-group row">
+            <%= f.label :定休日 , class: "col-4"%>
+            <%= f.text_field :regular_holiday, class: "col-8" %>
+          </div>
+
+          <div class="text-center">
+              <%= f.submit '変更を保存する', class: "btn btn-lg btn-success" %>
+          </div>
+        </div>
+      <% end %>
+  </div>
