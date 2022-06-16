@@ -1,0 +1,15 @@
+<table>
+  <tbody>
+    <% ramen.ramen_comments.each do |ramen_comment| %>
+    <tr>
+      <td><%= ramen_comment.user.name %></td>
+      <td><%= ramen_comment.comment %></td>
+      <td>
+        <% if ramen_comment.user == current_user %>
+        <%= link_to "削除", ramen_comment_path(ramen_comment.ramen,ramen_comment), method: :delete, class: "btn btn-sm btn-danger p-0 p-1", style: "font-size: 8px;" %>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

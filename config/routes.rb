@@ -1,3 +1,4 @@
+
 Rails.application.routes.draw do
 
 
@@ -5,8 +6,12 @@ Rails.application.routes.draw do
         sessions: 'users/sessions',
         registrations: 'users/registrations'
       }
-      resources :users, only: [:show, :edit]
+      resources :users, only: [:show, :edit, :update]
       resources :ramens, only: [:new,:create,:index,:show,:edit,:update,:destroy]
+      resources :ramen_comments, only: [:index,:create,:destroy]
+      resource :ramen_favorites, only: [:create, :destroy]
+
+
 
   devise_for :admins
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

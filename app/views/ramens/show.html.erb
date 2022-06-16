@@ -123,12 +123,22 @@
               <% if @ramen.user == current_user %>
               <tr>
                   <td><%= link_to '編集する', edit_ramen_path(@ramen.id), class: "btn btn-lg btn-success mt-5" %></td>
-                  <td><%= link_to "削除", ramen_path(@ramen.id), method: :delete,"data-confirm" => "本当に削除しますか？", class: "btn btn-lg btn-success mt-5" %></td>
+                  <td><%= link_to "削除", ramen_path(@ramen.id), method: :delete,"data-confirm" => "本当に削除しますか？", class: "btn btn-lg btn-danger mt-5" %></td>
               </tr>
               <% end %>
 
             </tbody>
           </table>
+
         </div>
     </div>
+    <div>
+      <%= render "comment", ramen: @ramen %>
+    </div>
+
+    <div>
+      <%= render "comment_form", ramen: @ramen, ramen_comment: @ramen_comment %>
+    </div>
+
   </div>
+

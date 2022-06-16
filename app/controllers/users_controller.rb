@@ -8,16 +8,23 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(current_user.id)
   end
 
   def update
-    @user = EndUser.find(current_user.id)
+    @user = User.find(current_user.id)
     @user.update(users_params)
-    redirect_to users_show_path
+    redirect_to user_path
   end
 
   private
+
+  def ensure_current_user
+    @user = User.find(params[:id])
+    if @user != current_user
+      flash[:notice] = "権限がありません"
+      redirect_to(root_path)
+    end
+  end
 
   def users_params
     params.require(:user).permit(:name, :email)

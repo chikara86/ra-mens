@@ -17,6 +17,7 @@ class RamensController < ApplicationController
 
   def show
     @ramen = Ramen.find(params[:id])
+    @ramen_comment = RamenComment.new
   end
 
   def index

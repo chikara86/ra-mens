@@ -1,0 +1,5 @@
+<%= form_with model:[ramen,ramen_comment], url:ramen_comments_path, local: true do |f| %>
+  <%= f.text_area :comment, placeholder: "コメントをここに" %>
+  <%= f.hidden_field :ramen_id, :value => @ramen.id %>
+  <%= f.submit "送信" %>
+<% end %>
