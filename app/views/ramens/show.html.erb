@@ -10,16 +10,17 @@
       </div>
     </div>
 
-    <div class="row mt-5">
 
-      <div class="col-4">
-        <%= image_tag @ramen.get_image, size: "350x250" %>
-      </div>
+
 
         <div class="col-8">
 
           <table>
             <tbody>
+
+              <tr>
+                  <%= image_tag @ramen.get_image, size: "350x250" %>
+              </tr>
 
               <tr>
                 <th>
@@ -132,13 +133,12 @@
 
         </div>
     </div>
-    <div>
-      <%= render "comment", ramen: @ramen %>
-    </div>
 
+    <% if user_signed_in? %>
     <div>
-      <%= render "comment_form", ramen: @ramen, ramen_comment: @ramen_comment %>
+      <%= link_to "コメントを見る", ramen_comments_path(@ramen) %>
     </div>
+    <% end %>
 
   </div>
 

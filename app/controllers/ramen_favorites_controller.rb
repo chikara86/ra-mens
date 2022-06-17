@@ -1,4 +1,5 @@
 class RamenFavoritesController < ApplicationController
+
   def create
     ramen = Ramen.find(params[:format])
     ramen_favorite = current_user.ramen_favorites.new(ramen_id: ramen.id)

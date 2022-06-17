@@ -3,8 +3,9 @@ class UsersController < ApplicationController
   before_action :ensure_current_user, {only: [:edit, :update]}
 
   def show
-  @user = User.find(params[:id])
-  @ramens = @user.ramens
+    @user = User.find(params[:id])
+    @ramens = @user.ramens
+    @ramen_favorites = RamenFavorite.all
   end
 
   def edit
@@ -18,13 +19,17 @@ class UsersController < ApplicationController
 
   private
 
-  def ensure_current_user
-    @user = User.find(params[:id])
-    if @user != current_user
-      flash[:notice] = "権限がありません"
-      redirect_to(root_path)
+    def ensure_current_user
+      @user = User.find(params[:id])
+      if @user != current_user
+        flash[:notice] = "権限がありません"
+        redirect_to(root_path)
+      end
     end
-  end
+
+
+
+
 
   def users_params
     params.require(:user).permit(:name, :email)

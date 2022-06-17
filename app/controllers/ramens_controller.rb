@@ -1,6 +1,8 @@
 class RamensController < ApplicationController
 
 
+
+
   def new
     @ramen = Ramen.new
   end
@@ -54,5 +56,7 @@ class RamensController < ApplicationController
   def ramen_params
     params.require(:ramen).permit(:user_id, :genre_id, :area_id, :shop_name, :name, :price, :introduction, :location, :business_hours, :regular_holiday, :image)
   end
+
+
 
 end

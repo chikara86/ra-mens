@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
     case resource
     when Admin
-      admin_genres_path
+      admin_users_path
     when User
       user_path(current_user.id)
     end
