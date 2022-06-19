@@ -1,5 +1,6 @@
 class RamensController < ApplicationController
 
+  before_action :search_product, only: [:index, :show, :search]
 
 
 
@@ -23,7 +24,6 @@ class RamensController < ApplicationController
   end
 
   def index
-    @ramens = Ramen.all
   end
 
   def edit
@@ -49,12 +49,16 @@ class RamensController < ApplicationController
   end
 
 
-
   private
+
+  def search_product
+    @ramen = Ramen.ransack(params[:q])
+    @results = @ramen.result
+  end
 
 
   def ramen_params
-    params.require(:ramen).permit(:user_id, :genre_id, :area_id, :shop_name, :name, :price, :introduction, :location, :business_hours, :regular_holiday, :image)
+    params.require(:ramen).permit(:user_id, :genre_id, :area_id, :shop_name, :name, :price, :introduction,:latitude, :longitude, :location, :business_hours, :regular_holiday, :image)
   end
 
 

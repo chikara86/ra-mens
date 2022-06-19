@@ -8,8 +8,8 @@ class CreateRamen < ActiveRecord::Migration[6.1]
       t.string :name, null: false
       t.string :introduction, null: false
       t.integer :price, null: false
-      t.float :latitube
-      t.float :longitube
+      t.float :latitude
+      t.float :longitude
       t.string :lacation
       t.time :open_time
       t.time :close_time

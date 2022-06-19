@@ -15,7 +15,7 @@ genres = [
   '二郎系'
   ]
 genres.each do |genre|
- # Genre.find_or_create_by(name: genre)
+ Genre.find_or_create_by(name: genre)
 end
 
 areas = [

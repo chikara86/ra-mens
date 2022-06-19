@@ -70,8 +70,8 @@ ActiveRecord::Schema.define(version: 2022_06_14_063832) do
     t.string "name", null: false
     t.string "introduction", null: false
     t.integer "price", null: false
-    t.float "latitube"
-    t.float "longitube"
+    t.float "latitude"
+    t.float "longitude"
     t.string "location"
     t.string "regular_holiday"
     t.datetime "created_at", precision: 6, null: false

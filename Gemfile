@@ -58,3 +58,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 #都道府県検索機能に使用します
 gem 'ransack'
+gem 'geocoder'
+gem 'dotenv-rails'
+
+group :production do
+  gem 'mysql2'
+end

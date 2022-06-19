@@ -1,15 +1,44 @@
+<%= search_form_for @ramen, url: ramens_path do |f| %>
+  <div class = "text-right mr-5 mt-3" >
+    <div class = 'nav-up'>
 
+      <%= f.text_field :shop_name_cont, placeholder: "店名から探す", class: "input-box" %>
+      <button class="search-button">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+
+    <div class='nav-down'>
+      <div class='label-select'>
+          <%= f.label :area_id_eq, '都道府県', class: 'label' %>
+          <%= f.collection_select :area_id_eq, Area.where.not(id: 0), :id, :area,  include_blank: '指定なし', class: 'search-select' %>
+      </div>
+
+
+      <div class='label-select'>
+        <%= f.label :genre_id_eq, 'ジャンル', class: 'label' %>
+        <%= f.collection_select :genre_id_eq, Genre.where.not(id: 0), :id, :name,  include_blank: '指定なし', class: 'search-select' %>
+      </div>
+
+    </div>
+  </div>
+<% end %>
 
 
 
 <div class="mx-auto" style="width: 600px;">
       <h1>ラーメン一覧</h1>
   <div class="card-list-container py-5">
-    <% @ramens.each do |ramen| %>
+    <% if @results.length == 0 %>
+      検索結果がありません。
+    <% end %>
+
+    <% @results.each do |ramen| %>
       <div class="card w-50 mx-auto mt-4 shadow-lg">
         <%= link_to ramen_path(ramen.id) do %>
           <%= image_tag ramen.get_image, class:"card-img-top"; %>
         <% end %>
+
 
           <div class="card-body">
             <div class="row">
@@ -18,12 +47,10 @@
                   <p class="card-text">エリア：<%= ramen.area.area %></p>
 
                 <p class="card-text">店名：<%= ramen.shop_name %></p>
-
-
-
                 <%= link_to(user_path(ramen.user.id), class:"text-dark") do %>
                 <span><i class="fas fa-user"></i> By <%= ramen.user.name %> ｜ </span>
                 <% end %>
+
 
                 <% if ramen.ramen_favorited_by?(current_user) %>
                   <p>
@@ -31,7 +58,7 @@
                       ♥<%= ramen.ramen_favorites.count %>
                     <% end %>
                   </p>
-                  <% else %>
+                <% else %>
                   <p>
                     <%= link_to ramen_favorites_path(ramen), method: :post do %>
                       ♡<%= ramen.ramen_favorites.count %>

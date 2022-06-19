@@ -7,7 +7,7 @@ Rails.application.routes.draw do
         registrations: 'users/registrations'
       }
       resources :users, only: [:show, :edit, :update,]
-      resources :ramens, only: [:new,:create,:index,:show,:edit,:update,:destroy,:search]
+      resources :ramens, only: [:top,:new,:create,:index,:show,:edit,:update,:destroy]
       resources :ramen_comments, only: [:index,:create,:destroy]
       resource :ramen_favorites, only: [:create, :destroy]
 

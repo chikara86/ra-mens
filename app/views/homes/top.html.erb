@@ -1,5 +1,31 @@
 <div class = "container" >
 
+  <%= search_form_for @ramen, url: ramens_path do |f| %>
+    <div class = "text-right mr-5 mt-3" >
+      <div class = 'nav-up'>
+    <!--title_or_text_contは、text_fieldに入力した文字がtitleかtextの中に含まれているか、という記述-->
+        <%= f.text_field :name_or_shop_name_cont, placeholder: "キーワードから探す", class: "input-box" %>
+        <button class="search-button">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+
+      <div class='nav-down'>
+        <div class='label-select'>
+            <%= f.label :area_id_eq, '都道府県', class: 'label' %>
+            <%= f.collection_select :area_id_eq, Area.where.not(id: 0), :id, :area,  include_blank: '指定なし', class: 'search-select' %>
+        </div>
+
+
+        <div class='label-select'>
+          <%= f.label :genre_id_eq, 'ジャンル', class: 'label' %>
+          <%= f.collection_select :genre_id_eq, Genre.where.not(id: 0), :id, :name,  include_blank: '指定なし', class: 'search-select' %>
+        </div>
+
+      </div>
+    </div>
+  <% end %>
+
     <div class = "row mt-5">
       <div class = "col-2 mr-5" ></div>
         <div class = "col-8 ml-5" >
@@ -12,6 +38,9 @@
         </div>
       <div class = "col-2" ></div>
     </div>
+
+
+
 
           <div class="card-list-container py-5">
             <% @ramens.each do |ramen| %>
@@ -35,4 +64,6 @@
               </div>
             <% end %>
           </div>
+
+
 </div>
