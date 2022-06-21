@@ -14,9 +14,9 @@
 <body class="d-flex flex-column vh-100">
     <header class="shadow-sm">
 
-      <nav class="navbar navbar-expand-lg navbar-light">
+      <nav class="navbar navbar-expand-lg navbar-light bg-danger">
         <div class="container">
-          <div class = "text-left" >
+          <div class = "text-left text-white" >
             <h3>
               ラーメンズ
             </h3>
@@ -27,50 +27,50 @@
 
             <% if user_signed_in? %>
 
-            <li class="nav-item m-3">
+            <li class="nav-item m-3 text-white">
           　  ようこそ、<%= current_user.name %>さん！
           　</li>
 
             <li class="nav-item">
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-white' %>
             </li>
 
             <li class="nav-item">
-              <%= link_to '投稿する', new_ramen_path, class: 'nav-link text-dark' %>
+              <%= link_to '投稿する', new_ramen_path, class: 'nav-link text-white' %>
             </li>
 
             <li class="nav-item">
-              <%= link_to 'マイページ', user_path(current_user.id), class: 'nav-link text-dark' %>
+              <%= link_to 'マイページ', user_path(current_user.id), class: 'nav-link text-white' %>
             </li>
 
             <li class="nav-item">
-              <%= link_to 'ラーメン一覧', ramens_path, class: 'nav-link text-dark' %>
+              <%= link_to 'ラーメン一覧', ramens_path, class: 'nav-link text-white' %>
             </li>
 
             <% elsif admin_signed_in? %>
             <li class="nav-item">
-              <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' %>
+              <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-white' %>
             </li>
 
             <li class="nav-item">
-              <%= link_to 'エリア一覧', admin_areas_path, class: 'nav-link text-dark' %>
+              <%= link_to 'エリア一覧', admin_areas_path, class: 'nav-link text-white' %>
             </li>
 
             <li class="nav-item">
-              <%= link_to 'ジャンル一覧', admin_genres_path, class: 'nav-link text-dark' %>
+              <%= link_to 'ジャンル一覧', admin_genres_path, class: 'nav-link text-white' %>
             </li>
 
             <li class="nav-item">
-              <%= link_to '会員一覧', admin_users_path, class: 'nav-link text-dark' %>
+              <%= link_to '会員一覧', admin_users_path, class: 'nav-link text-white' %>
             </li>
 
             <% else %>
 
             <li class="nav-item">
-              <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-dark' %>
+              <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-white' %>
             </li>
             <li class="nav-item">
-              <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-dark' %>
+              <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-white' %>
             </li>
 
             <% end %>

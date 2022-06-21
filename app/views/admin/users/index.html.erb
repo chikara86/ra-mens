@@ -1,3 +1,14 @@
+<%= search_form_for @user, url: admin_users_path do |f| %>
+  <div class = "text-right mr-5 mt-3" >
+    <div class = 'nav-up'>
+
+      <%= f.text_field :name_cont, placeholder: "名前から探す", class: "input-box" %>
+      <button class="search-button">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+<% end %>
+
 <div class="container">
   <div class="row mb-3">
     <h2>
@@ -6,6 +17,9 @@
       </strong>
     </h2>
   </div>
+  <% if @results.length == 0 %>
+      検索結果がありません。
+  <% end %>
   <table class="table">
   <thead class="bg-light">
     <tr>
@@ -14,7 +28,7 @@
       <th>メールアドレス</th>
     </tr>
     <tbody>
-      <% @users.each do |user| %>
+      <% @results.each do |user| %>
         <tr>
           <td><%= user.id %></td>
 

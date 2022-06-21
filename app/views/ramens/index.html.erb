@@ -33,8 +33,11 @@
       検索結果がありません。
     <% end %>
 
+<div class = "container">
     <% @results.each do |ramen| %>
+    <div class = "row">
       <div class="card w-50 mx-auto mt-4 shadow-lg">
+
         <%= link_to ramen_path(ramen.id) do %>
           <%= image_tag ramen.get_image, class:"card-img-top"; %>
         <% end %>
@@ -51,20 +54,9 @@
                 <span><i class="fas fa-user"></i> By <%= ramen.user.name %> ｜ </span>
                 <% end %>
 
-
-                <% if ramen.ramen_favorited_by?(current_user) %>
-                  <p>
-                    <%= link_to ramen_favorites_path(ramen), method: :delete do %>
-                      ♥<%= ramen.ramen_favorites.count %>
-                    <% end %>
-                  </p>
-                <% else %>
-                  <p>
-                    <%= link_to ramen_favorites_path(ramen), method: :post do %>
-                      ♡<%= ramen.ramen_favorites.count %>
-                    <% end %>
-                  </p>
-                <% end %>
+                <div id ="ramen_favorites_buttons_<%= ramen.id %>">
+                <%= render 'ramen_favorites/favorite', ramen: ramen %>
+                </div>
 
                 <p>
                 <%= link_to ramen_comments_path(ramen) do %>
@@ -75,8 +67,8 @@
               </div>
             </div>
           </div>
-
       </div>
+    </div>
     <% end %>
   </div>
 </div>
