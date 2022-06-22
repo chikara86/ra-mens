@@ -43,23 +43,23 @@
 
 
 <h3>投稿一覧</h3>
-<div class="card-list-container py-5">
-  <% @ramens.each do |ramen| %>
-    <div class="card w-50 mx-auto mt-4 shadow-lg">
-      <%= link_to ramen_path(ramen.id) do %>
-        <%= image_tag ramen.get_image, class:"card-img-top"; %>
-      <% end %>
-        <div class="card-body">
-          <div class="row">
-            <div class="col-12">
-              <p class="card-title">
-                <p class="card-text">エリア：<%= ramen.area.area %></p>
-
-                <p class="card-text">店名：<%= ramen.shop_name %></p>
-
+<div class = "container py-5">
+  <div class = "row">
+    <% @ramens.each do |ramen| %>
+      <div class="card w-50 mx-auto mt-4 shadow-lg col-3">
+        <%= link_to ramen_path(ramen.id) do %>
+          <%= image_tag ramen.get_image, class:"card-img-top"; %>
+        <% end %>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-12">
+                <p class="card-title">
+                  <p class="card-text">エリア：<%= ramen.area.area %></p>
+                  <p class="card-text">店名：<%= ramen.shop_name %></p>
+              </div>
             </div>
           </div>
-        </div>
-    </div>
+      </div>
   <% end %>
+  </div>
 </div>

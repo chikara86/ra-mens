@@ -1,4 +1,3 @@
-<div class = "container" >
 
   <%= search_form_for @ramen, url: ramens_path do |f| %>
     <div class = "text-right mr-5 mt-3" >
@@ -26,25 +25,23 @@
     </div>
   <% end %>
 
-    <div class = "row mt-5">
-      <div class = "col-2 mr-5" ></div>
-        <div class = "col-8 ml-5" >
+  <div class = "container">
+    <div class = "offset-md-4">
           <p>
             好きなラーメンを見つけましょう！<br>
             新規登録することでラーメンに対するコメントが見れるようになり<br>
             気に入ったラーメンをいいねできるようになります。<br>
             また、いいねしたラーメンはマイページでいつでも見返せます！
           </p>
-        </div>
-      <div class = "col-2" ></div>
     </div>
+  </div>
 
 
 
-
-          <div class="card-list-container py-5">
+      <div class = "container">
+        <div class="row">
             <% @ramens.each do |ramen| %>
-              <div class="card w-50 mx-auto mt-4 shadow-lg">
+              <div class="card w-50 mx-auto mt-4 shadow-lg col-3 ml-1">
                 <%= link_to ramen_path(ramen.id) do %>
                   <%= image_tag ramen.get_image, class:"card-img-top"; %>
                 <% end %>
@@ -66,4 +63,4 @@
           </div>
 
 
-</div>
+      </div>
