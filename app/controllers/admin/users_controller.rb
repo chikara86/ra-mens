@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
   before_action :set_user, :only => [:show, :favorites, :comments, :destroy]
-  before_action :authenticate_admin!, expect: [:top]
+  before_action :authenticate_admin!
   before_action :search_product, only: [:index, :search]
 
   def index

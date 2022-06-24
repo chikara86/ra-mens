@@ -1,4 +1,5 @@
 class RamenCommentsController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @ramen = Ramen.find(params[:format])

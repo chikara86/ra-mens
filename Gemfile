@@ -66,3 +66,4 @@ group :production do
 end
 
 gem 'jquery-rails'
+gem 'kaminari','~> 1.2.1'

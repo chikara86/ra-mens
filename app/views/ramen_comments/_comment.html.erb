@@ -1,39 +1,34 @@
-  <div class = "container" >
+  <div class = "container">
+      <div class = "offset-md-4">
+              <% if ramen.ramen_comments.present? %>
+                <% ramen.ramen_comments.each do |ramen_comment| %>
 
-    <table>
-      <tbody>
-        <div class = "row mt-5">
-          <div class = "col-2 mr-5" ></div>
-            <div class = "col-8 ml-5" >
-              <% ramen.ramen_comments.each do |ramen_comment| %>
-              <tr>
-                <td><%= ramen_comment.user.name %></td>
-                <td "ml-3"><%= ramen_comment.comment %></td>
-                <td>
-                  <% if ramen_comment.user == current_user %>
-                  <%= link_to "削除", ramen_comment_path(ramen_comment.ramen,ramen_comment), method: :delete, class: "btn btn-sm btn-danger p-0 p-1", style: "font-size: 8px;" %>
-                  <% end %>
-                </td>
-              </tr>
+                  <div class = "row mt-5">
+                    <%= ramen_comment.user.name %>
+                  </div>
+
+                  <div class = "row mt-1">
+                  <%= ramen_comment.comment %>
+
+                    <% if ramen_comment.user == current_user %>
+                    <%= link_to "削除", ramen_comment_path(ramen_comment.ramen,ramen_comment), method: :delete, class: "btn btn-sm btn-danger p-0 p-1", style: "font-size: 8px;" %>
+                    <% end %>
+                  </div>
+
+                <% end %>
+              <% else %>
+                  <div class ="row mt-5">コメントはまだありません</div>
               <% end %>
-            </div>
-          <div class = "col-2" ></div>
-        </div>
-      </tbody>
-    </table>
 
 
-        <div class = "row mt-5">
-          <div class = "col-2 mr-5" ></div>
-            <div class = "col-8 ml-5" >
-              <tr>
+
+                <div class = "row mt-5">
+
                 <%= form_with model:[ramen,ramen_comment], url:ramen_comments_path, local: true do |f| %>
                 <%= f.text_area :comment, placeholder: "コメントをここに" %>
                 <%= f.hidden_field :ramen_id, :value => @ramen.id %>
                 <%= f.submit "送信" %>
                 <% end %>
-              </tr>
-            </div>
-          <div class = "col-2" ></div>
-        </div>
+                </div>
+    </div>
   </div>

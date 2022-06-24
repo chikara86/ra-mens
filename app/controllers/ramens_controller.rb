@@ -1,7 +1,7 @@
 class RamensController < ApplicationController
 
   before_action :search_product, only: [:index, :show, :search]
-
+  
 
 
   def new
@@ -24,6 +24,7 @@ class RamensController < ApplicationController
   end
 
   def index
+    # @ramens = Ramens.page(params[:page]).per(30)
   end
 
   def edit
