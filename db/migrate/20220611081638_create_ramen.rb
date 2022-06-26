@@ -1,7 +1,7 @@
 class CreateRamen < ActiveRecord::Migration[6.1]
   def change
     create_table :ramen do |t|
-      t.references :user, foreign_key: true
+      t.references :user, type: :integer, foreign_key: true
       t.references :genre, foreign_key: true
       t.references :area, foreign_key: true
       t.string :shop_name, null: false
