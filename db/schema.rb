@@ -79,7 +79,6 @@ ActiveRecord::Schema.define(version: 2022_06_14_063832) do
     t.string "business_hours"
     t.index ["area_id"], name: "index_ramen_on_area_id"
     t.index ["genre_id"], name: "index_ramen_on_genre_id"
-    t.index ["user_id"], name: "index_ramen_on_user_id"
   end
 
   create_table "ramen_comments", force: :cascade do |t|
@@ -127,7 +126,6 @@ ActiveRecord::Schema.define(version: 2022_06_14_063832) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "ramen", "areas"
   add_foreign_key "ramen", "genres"
-  add_foreign_key "ramen", "users"
   add_foreign_key "ramen_comments", "ramen", column: "ramen_id"
   add_foreign_key "ramen_comments", "users"
   add_foreign_key "ramen_favorites", "ramen", column: "ramen_id"
