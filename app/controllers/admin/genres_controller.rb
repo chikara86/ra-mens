@@ -28,14 +28,6 @@ before_action :authenticate_admin!
     end
   end
 
-  # def destroy
-  #   @genre = Genre.find(params[:id])
-  #   if @genre.destroy
-  #     redirect_to admin_genres_path
-  #   else
-  #     render :index
-  #   end
-  # end
 
 
   private
