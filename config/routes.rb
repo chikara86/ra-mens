@@ -18,8 +18,10 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # root to  'confirmations#new'
   namespace :admin do
-  resources :users, only: [:index,:update,:destroy]
+  resources :users, only: [:index,:show,:update,:destroy]
   resources :areas, only: [:index,:edit,:create,:update]
   resources :genres, only: [:index,:edit,:create,:update,:destroy]
+  resources :ramens, only: [:show,:destroy]
+  resources :ramen_comments, only: [:index,:destroy]
   end
 end

@@ -1,0 +1,63 @@
+<strong><%= @user.name %></strong>
+    <% if @user == current_user %>
+
+      <%= link_to edit_user_path(@user), class: "btn-sm btn-outline-secondary btn-block" do %>
+        <i class="fas fa-user-cog"></i>
+      <% end %>
+
+    <% end %>
+
+    <table class='table table-hover table-inverse'>
+
+      <thead>
+        <tr>
+          <th>いいねしたラーメン</th>
+          <th></th>
+        </tr>
+      </thead>
+
+    <tbody>
+         <% @ramen_favorites.each do |ramen_favorite| %>
+         <% if ramen_favorite.user.id == @user.id %>
+      <tr>
+        <td>
+          <%= link_to ramen_path(ramen_favorite.ramen.id) do %>
+          <%= ramen_favorite.ramen.shop_name %>
+        <% end %>
+        </td>
+        <td>
+        <%= image_tag ramen_favorite.ramen.get_image, size:'50x50' %>
+        </td>
+      </tr>
+      <% end %>
+      <% end %>
+    </tbody>
+  </table>
+
+
+
+
+
+
+
+<h3>投稿一覧</h3>
+<div class = "container py-5">
+  <div class = "row">
+    <% @ramens.each do |ramen| %>
+      <div class="card w-50 mx-auto mt-4 shadow-lg col-3">
+        <%= link_to admin_ramen_path(ramen.id) do %>
+          <%= image_tag ramen.get_image, class:"card-img-top"; %>
+        <% end %>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-12">
+                <p class="card-title">
+                  <p class="card-text">エリア：<%= ramen.area.area %></p>
+                  <p class="card-text">店名：<%= ramen.shop_name %></p>
+              </div>
+            </div>
+          </div>
+      </div>
+  <% end %>
+  </div>
+</div>

@@ -113,25 +113,23 @@
             </div>
 
 
-              <% if @ramen.user == current_user %>
-              <div class = "row">
-                <div class = "col-3">
-                  <%= link_to '編集する', edit_ramen_path(@ramen.id), class: "btn btn-lg btn-success mt-5" %>
-                </div>
+
                 <div class = "col-2">
-                  <%= link_to "削除", ramen_path(@ramen.id), method: :delete,"data-confirm" => "本当に削除しますか？", class: "btn btn-lg btn-danger mt-5" %>
+                  <%= link_to "削除", admin_ramen_path(@ramen.id), method: :delete,"data-confirm" => "本当に削除しますか？", class: "btn btn-lg btn-danger mt-5" %>
                 </div>
               </div>
-              <% end %>
 
 
-      <% if user_signed_in? %>
-      <div class = "row mt-3">
-        <div class = "col-4">
-        <%= link_to "コメントを見る", ramen_comments_path(@ramen) %>
-        </div>
+
+
+
+
+    <div class = "row mt-3">
+      <div class = "col-4">
+      <%= link_to "コメントを見る", admin_ramen_comments_path(@ramen) %>
       </div>
-      <% end %>
+    </div>
+
 
     </div>
   </div>
