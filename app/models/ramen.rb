@@ -9,6 +9,7 @@ class Ramen < ApplicationRecord
   has_many :genres, through: :ramen_genres
   has_many :ramen_comments, dependent: :destroy
   has_many :ramen_favorites, dependent: :destroy
+  has_many :tags, dependent: :destroy
 
 
   belongs_to :area

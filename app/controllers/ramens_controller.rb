@@ -1,7 +1,7 @@
 class RamensController < ApplicationController
 
   before_action :search_product, only: [:index, :show, :search]
-  
+
 
 
   def new
@@ -12,6 +12,10 @@ class RamensController < ApplicationController
     @ramen = Ramen.new(ramen_params)
     @ramen.user_id = current_user.id
     if @ramen.save
+      tags = Vision.get_image_data(@ramen.image)
+      tags.each do |tag|
+      @ramen.tags.create(name: tag)
+    end
       redirect_to ramen_path(@ramen.id)
     else
       render :new
