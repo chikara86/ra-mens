@@ -1,2 +1,10 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+.label{
+  background: salmon;
+  color: #fff;
+  padding: 0px 15px;
+  text-decoration: none;
+  border-radius: 30px;
+}
